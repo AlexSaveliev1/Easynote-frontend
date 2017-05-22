@@ -1,0 +1,21 @@
+.sign-up-wrapper {
+  width:100%;
+  height: 100vh;
+  background-color: rgb(207, 70, 71);
+
+  .sign-up-registration-form-wrapper {
+    margin-top: 120px;
+
+    .sign-up-registration-form {
+      background-color: white;
+
+      padding: 55px;
+      margin-left: 20px;
+      margin-right: 20px;
+
+      .sign-up-registration-form-button {
+        padding: 5px;
+      }
+    }
+  }
+}

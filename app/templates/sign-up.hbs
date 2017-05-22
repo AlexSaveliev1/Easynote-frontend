@@ -1,0 +1,23 @@
+<div class="sign-up-wrapper layout-column layout-align-start-center">
+  <div class="container layout-column layout-align-center-center">
+    <div class="sign-up-registration-form-wrapper">
+      <h1 class="text-center">Easynote</h1>
+      {{#paper-form class="sign-up-registration-form" onSubmit=null as |form|}}
+        <div class="layout-row layout-align-center-center">Create your Easynote account.</div>
+        <div class="layout-row">
+          {{form.input label="First Name" value=firstName onChange=(action (mut firstName)) required=true}}
+          {{form.input label="Last Name" value=lastName onChange=(action (mut lastName))}}
+        </div>
+        <div class="layout-column">
+          {{form.input label="Email" value=firstName onChange=(action (mut email)) required=true class="flex-100"}}
+          {{form.input label="Password" value=firstName onChange=(action (mut email)) required=true class="flex-100"}}
+          {{form.input label="Confirm password" value=firstName onChange=(action (mut email)) required=true class="flex-100"}}
+          <!-- {{form.input label="Last Name" value=lastName onChange=(action (mut lastName))}} -->
+        </div>
+        <div class="layout-row layout-align-center-center">
+          {{#form.submit-button raised=true primary=true class="flex-35 sign-up-registration-form-button"}}Sign up{{/form.submit-button}}
+        </div>
+      {{/paper-form}}
+    </div>
+  </div>
+</div>
