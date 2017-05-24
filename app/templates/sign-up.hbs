@@ -3,7 +3,7 @@
     <div class="sign-up-registration-form-wrapper">
       <h1 class="text-center">Easynote</h1>
       {{#paper-form class="sign-up-registration-form" onSubmit=null as |form|}}
-        <div class="layout-row layout-align-center-center">Create your Easynote account.</div>
+        <div class="layout-row layout-align-center-center sign-up-registration-form-title">Create your Easynote account.</div>
         <div class="layout-row">
           {{form.input label="First Name" value=firstName onChange=(action (mut firstName)) required=true}}
           {{form.input label="Last Name" value=lastName onChange=(action (mut lastName))}}
