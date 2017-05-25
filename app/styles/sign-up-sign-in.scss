@@ -1,7 +1,9 @@
+@import 'variables';
+
 .sign-up-wrapper {
   width:100%;
   height: 100vh;
-  background-color: rgb(207, 70, 71);
+  background-color: $background-dark-blue;
 
   .sign-up-registration-form-wrapper {
     margin-top: 120px;
@@ -9,6 +11,9 @@
     .sign-up-registration-form {
       background-color: white;
 
+      border-radius: $border-radius;
+      // box-shadow: 2px 5px 25px 0px rgba(0,0,0,0.75);
+      box-shadow: $box-shadow-low;
       padding: 55px;
       margin-left: 20px;
       margin-right: 20px;

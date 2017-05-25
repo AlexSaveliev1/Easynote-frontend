@@ -1,9 +1,8 @@
 <div class="sign-up-wrapper layout-column layout-align-start-center">
   <div class="container layout-column layout-align-center-center">
-    <div class="sign-up-registration-form-wrapper">
+    <div class="sign-up-registration-form-wrapper flex-30">
       <h1 class="text-center">Welcome back!</h1>
       {{#paper-form class="sign-up-registration-form" onSubmit=null as |form|}}
-
         <div class="layout-row">
           {{form.input label="Email" value=firstName onChange=(action (mut email)) required=true class="flex-100"}}
         </div>

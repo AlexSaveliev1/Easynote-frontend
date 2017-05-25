@@ -1,4 +1,14 @@
 @import 'ember-paper';
+
+// base and variables
 @import 'base';
+@import 'variables';
+
+// routes
 @import 'main';
 @import 'sign-up-sign-in';
+@import 'dashboard';
+
+// Components
+@import './components/header-bar';
+@import './components/user-note';
