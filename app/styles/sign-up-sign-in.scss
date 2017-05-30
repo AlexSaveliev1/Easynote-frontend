@@ -8,6 +8,25 @@
   .sign-up-registration-form-wrapper {
     margin-top: 120px;
 
+    .sign-up-title {
+      color: #53B567;
+    }
+
+    .sign-up-button.md-default-theme.md-button.md-primary.md-raised {
+      background-color: transparent;
+      border: 1px solid $background-dark-blue;
+      padding: 10px 20px;
+      border-radius: 1;
+      color: $background-dark-blue;
+    }
+
+    .sign-up-button.md-default-theme.md-button.md-primary.md-raised:hover {
+      border: 1px solid #FFC333;
+      background-color: #FFC333;
+      color: $background-dark-blue;
+    }
+
+
     .sign-up-registration-form {
       background-color: white;
 

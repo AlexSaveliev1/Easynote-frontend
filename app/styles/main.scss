@@ -1,11 +1,12 @@
 @import 'variables';
 
 .main-first-section {
-  background-color: $background-dark-blue;
+  background-color: #53B567;
   color: white;
 
   .main-title {
-    margin-top: 120px;
+    margin-top: 60px;
+    margin-bottom: 60px;
   }
   .main-first-section-image {
     width: 500px;
@@ -23,10 +24,6 @@
     margin-top: 50px;
     margin-bottom: 50px;
 
-    .main-sign-up-button {
-
-    }
-
     .main-sign-up-button.md-default-theme.md-button.md-primary.md-raised {
       background-color: transparent;
       border: 1px solid white;
@@ -34,7 +31,8 @@
       border-radius: 1;
     }
     .main-sign-up-button.md-default-theme.md-button.md-primary.md-raised:hover {
-      background-color: white;
+      border: 1px solid #FFC333;
+      background-color: #FFC333;
       color: $background-dark-blue;
     }
   }

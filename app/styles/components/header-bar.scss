@@ -1,6 +1,11 @@
-.header-bar {
-  box-sizing: border-box;
-  padding-top: 20px;
-  padding-left: 40px;
-  padding-right: 40px;
+.header-bar-wrapper {
+  background-color: white;
+
+  .header-bar {
+    color: black;
+
+    box-sizing: border-box;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 }
