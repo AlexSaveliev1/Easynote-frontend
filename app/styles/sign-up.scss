@@ -9,12 +9,17 @@
     margin-top: 120px;
 
     .sign-up-title {
-      color: #53B567;
+      color: $light-green;
+    }
+
+    .sign-up-validation-error {
+      font-size: 12px;
+      color: #d50000;
     }
 
     .sign-up-button.md-default-theme.md-button.md-primary.md-raised {
       background-color: transparent;
-      border: 1px solid $background-dark-blue;
+      border: 1px solid $light-green;
       padding: 10px 20px;
       border-radius: 1;
       color: $background-dark-blue;

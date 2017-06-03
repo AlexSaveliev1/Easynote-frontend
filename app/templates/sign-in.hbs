@@ -1,7 +1,7 @@
 <div class="sign-up-wrapper layout-column layout-align-start-center">
   <div class="container layout-column layout-align-center-center">
-    <div class="sign-up-registration-form-wrapper flex-30">
-      <h1 class="text-center">Welcome back!</h1>
+    <div class="sign-up-registration-form-wrapper flex-50">
+      <h1 class="text-center sign-up-title">Welcome back!</h1>
       {{#paper-form class="sign-up-registration-form" onSubmit=null as |form|}}
         <div class="layout-row">
           {{form.input label="Email" value=firstName onChange=(action (mut email)) required=true class="flex-100"}}
@@ -9,9 +9,10 @@
         <div class="layout-column">
           {{form.input label="Password" value=firstName onChange=(action (mut email)) required=true class="flex-100"}}
         </div>
+        <div class="layout-row layout-align-center-center sign-up-registration-form-title">Forgot password?</div>
         <div class="layout-row layout-align-center-center sign-up-registration-form-title">Don't have an account yet?</div>
         <div class="layout-row layout-align-center-center">
-          {{#form.submit-button raised=true primary=true class="flex-35 sign-up-registration-form-button"}}Sign in{{/form.submit-button}}
+          {{#form.submit-button raised=true primary=true class="flex-100 sign-up-button"}}Sign in{{/form.submit-button}}
         </div>
       {{/paper-form}}
     </div>

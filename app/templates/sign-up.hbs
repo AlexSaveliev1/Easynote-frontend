@@ -2,19 +2,43 @@
   <div class="container layout-column layout-align-center-center">
     <div class="sign-up-registration-form-wrapper">
       <h1 class="sign-up-title text-center">Easynote</h1>
-      {{#paper-form class="sign-up-registration-form" onSubmit=null as |form|}}
-        <div class="layout-row layout-align-center-center sign-up-registration-form-title">Create your Easynote account.</div>
-        <div class="layout-row">
-          {{form.input label="Last Name" value=lastName onChange=(action (mut lastName))}}
-          {{form.input label="First Name" value=firstName onChange=(action (mut firstName)) required=true}}
-        </div>
-        <div class="layout-column">
-          {{form.input label="Email" value=firstName onChange=(action (mut email)) required=true class="flex-100"}}
-          {{form.input label="Password" value=firstName onChange=(action (mut email)) required=true class="flex-100"}}
-          {{form.input label="Confirm password" value=firstName onChange=(action (mut email)) required=true class="flex-100"}}
-          <!-- {{form.input label="Last Name" value=lastName onChange=(action (mut lastName))}} -->
-        </div>
-          {{#paper-button raised=true primary=true class="sign-up-button"}}Sign up{{/paper-button}}
+      {{#paper-form class="sign-up-registration-form" as |form|}}
+      <div class="layout-row layout-align-center-center sign-up-registration-form-title">Create your Easynote account.</div>
+      <div class="layout-row">
+        {{form.input label="Login" value=newUser.login icon="person" onChange=(action (mut newUser.login))}}
+        {{form.input label="Secret key" type="password" required=true icon="lock" value=newUser.secretKey onChange=(action (mut newUser.secretKey))}}
+      </div>
+      <div class="layout-column">
+        {{form.input label="Email"
+        value=newUser.email
+        onChange=(action (mut newUser.email))
+        required=true
+        errors=emailValidationError
+        icon="email"
+        class="flex-100"}}
+        {{form.input label="Password"
+        value=newUser.password
+        type="password"
+        onChange=(action (mut newUser.password))
+        required=true
+        errors=passwordError
+        icon="lock"
+        class="flex-100"}}
+        {{form.input label="Confirm password"
+        value=newUser.confirmedPassword
+        type="password"
+        errors=confirmedPasswordError
+        onChange=(action (mut newUser.confirmedPassword))
+        required=true
+        icon='lock'
+         class="flex-100"}}
+      </div>
+      <div class="layout-row layout-align-center-center">
+        <p class="sign-up-validation-error">{{validationError}}</p>
+      </div>
+      <div class="layout-row layout-align-center-center">
+        {{#paper-button raised=true primary=true class="sign-up-button flex-40" onClick=(action 'signUp')}}Sign up{{/paper-button}}
+      </div>
       {{/paper-form}}
     </div>
   </div>
