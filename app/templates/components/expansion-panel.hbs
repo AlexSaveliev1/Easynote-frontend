@@ -1,0 +1,30 @@
+{{#paper-expansion-panel as |panel|}}
+  {{#panel.collapsed}}
+    <div class="md-panel-title">Title {{item}}</div>
+    <div class="md-panel-summary">Summary</div>
+    {{paper-icon "keyboard_arrow_down"}}
+  {{/panel.collapsed}}
+
+  {{#panel.expanded as |expanded|}}
+    {{#expanded.header}}
+      <div class="md-panel-title">Expanded title</div>
+      <div class="md-panel-summary">Expanded summary</div>
+      {{paper-icon "keyboard_arrow_up"}}
+    {{/expanded.header}}
+
+    {{#expanded.content}}
+      {{content}}
+    {{/expanded.content}}
+
+    {{#expanded.footer}}
+      <span class="flex"></span>
+      {{#paper-button onClick=(action panel.collapse)}}
+        Cancel
+      {{/paper-button}}
+      {{#paper-button primary=true onClick=(action panel.collapse)}}
+        Save
+      {{/paper-button}}
+    {{/expanded.footer}}
+
+  {{/panel.expanded}}
+{{/paper-expansion-panel}}

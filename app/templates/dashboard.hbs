@@ -1,36 +1,25 @@
-<div class="content-wrapper">
+<div class="content-wrapper dashboard layout-column flex-100">
   <div class="container layout-row flex-100">
     <!-- {{header-bar}} -->
     <div class="dashboard-wrapper layout-column flex-100">
-      <div class="layout-row layout-align-start-start">
-        <div class="dashboard-left-bar layout-column flex-25">
-          <div class="dashboard-left-bar-header">
-            <div class="layout-row dashboard-left-bar-header-title">
-              <h2>Notebook</h2>
+      <div class="layout-row flex-100 layout-align-start-start">
+        <div class="dashboard-left-bar-wrapper layout-column flex-20">
+          <div class="dashboard-left-bar layout-column flex-100">
+            <div class="dashboard-left-bar-header">
+              <div class="layout-row dashboard-left-bar-header-title">
+                <h2>Notebook</h2>
+              </div>
+              <div class="layout-row dashboard-left-bar-header-title">
+                <h3>Sasha Saveliev</h3>
+              </div>
             </div>
-            <div class="layout-row dashboard-left-bar-header-search">
-              {{paper-input placeholder="Search" type="text" value=user.phone onChange=(action (mut user.phone)) icon="search" class="flex-100 dashboard-left-bar-search"}}
+            <div class="layout-column dashboard-left-bar-notes-container">
+
             </div>
           </div>
-          <div class="layout-column dashboard-left-bar-notes-container">
-            {{user-note}}
-            {{user-note}}
-            {{user-note}}
-            {{user-note}}
-            {{user-note}}
-            {{user-note}}
-            {{user-note}}
-            {{user-note}}
-            {{user-note}}
-            {{user-note}}
-          </div>
+
         </div>
         <div class="layout-column dashboard-note-area flex-100">
-          <div class="layout-row dashboard-note-area-caption-wrapper flex-100">
-            <div class="layout-row dashboard-note-area-caption">
-              Created on May 25th, 10:01 pm
-            </div>
-          </div>
           {{outlet}}
         </div>
       </div>

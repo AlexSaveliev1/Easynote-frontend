@@ -5,8 +5,8 @@
       {{#paper-form class="sign-up-registration-form" as |form|}}
       <div class="layout-row layout-align-center-center sign-up-registration-form-title">Create your Easynote account.</div>
       <div class="layout-row">
-        {{form.input label="Login" value=newUser.login icon="person" onChange=(action (mut newUser.login))}}
-        {{form.input label="Secret key" type="password" required=true icon="lock" value=newUser.secretKey onChange=(action (mut newUser.secretKey))}}
+        {{form.input label="First name" value=newUser.firstName icon="person" autofocus=true onChange=(action (mut newUser.firstName))}}
+        {{form.input label="Last name" required=true value=newUser.lastName onChange=(action (mut newUser.lastName))}}
       </div>
       <div class="layout-column">
         {{form.input label="Email"
@@ -31,7 +31,7 @@
         onChange=(action (mut newUser.confirmedPassword))
         required=true
         icon='lock'
-         class="flex-100"}}
+        class="flex-100"}}
       </div>
       <div class="layout-row layout-align-center-center">
         <p class="sign-up-validation-error">{{validationError}}</p>

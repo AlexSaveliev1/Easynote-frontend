@@ -10,7 +10,9 @@ Router.map(function() {
   this.route('sign-up');
   this.route('sign-in');
 
-  this.route('dashboard', function() {});
+  this.route('dashboard', function() {
+    this.route('my-notes');
+  });
 });
 
 export default Router;

@@ -1,19 +1,22 @@
-<div class="sign-up-wrapper layout-column layout-align-start-center">
-  <div class="container layout-column layout-align-center-center">
-    <div class="sign-up-registration-form-wrapper flex-50">
+<div class="sign-up-wrapper layout-row layout-align-start-center">
+  <div class="container layout-row flex-100 layout-align-center-center">
+    <div class="sign-up-registration-form-wrapper sign-in-wrapper flex-xs-100 flex-sm-60 flex-md-40 flex-lg-35 flex-25">
       <h1 class="text-center sign-up-title">Welcome back!</h1>
-      {{#paper-form class="sign-up-registration-form" onSubmit=null as |form|}}
+      {{#paper-form class="sign-up-registration-form" onSubmit=(action 'signIn') as |form|}}
         <div class="layout-row">
-          {{form.input label="Email" value=firstName onChange=(action (mut email)) required=true class="flex-100"}}
+          {{form.input label="Email" value=email icon="email" autofocus=true onChange=(action (mut email)) required=true class="flex-100"}}
         </div>
         <div class="layout-column">
-          {{form.input label="Password" value=firstName onChange=(action (mut email)) required=true class="flex-100"}}
+          {{form.input label="Password" value=password icon="lock" onChange=(action (mut password)) required=true class="flex-100"}}
         </div>
-        <div class="layout-row layout-align-center-center sign-up-registration-form-title">Forgot password?</div>
-        <div class="layout-row layout-align-center-center sign-up-registration-form-title">Don't have an account yet?</div>
         <div class="layout-row layout-align-center-center">
-          {{#form.submit-button raised=true primary=true class="flex-100 sign-up-button"}}Sign in{{/form.submit-button}}
+          <p class="sign-up-validation-error">{{validationError}}</p>
         </div>
+        <div class="layout-row layout-align-center-center">
+          {{#form.submit-button raised=true primary=true class="flex-100 sign-up-button" onClick=(action 'signIn') }}Sign in{{/form.submit-button}}
+        </div>
+        {{#link-to 'sign-up' class="layout-row layout-align-end-center text-caption"}}<p>Don't have an account yet?</p>{{/link-to}}
+        <div class="layout-row layout-align-end-center text-caption" {{action 'test'}}>Forgot password?</div>
       {{/paper-form}}
     </div>
   </div>

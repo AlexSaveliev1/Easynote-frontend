@@ -1,6 +1,6 @@
 {
   "name": "easynote",
   "dependencies": {
-    "slick-carousel": "1.5.8"
+    "ember": "2.13.0"
   }
 }

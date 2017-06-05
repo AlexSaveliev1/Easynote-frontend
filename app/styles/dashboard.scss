@@ -1,10 +1,20 @@
 @import 'variables';
 
+.dashboard {
+  .container {
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 50px;
+  }
+
+}
 .content-wrapper {
   height: 100vh;
   background-color: $background-dark-blue;
 
+
   .dashboard-wrapper {
+    height: 100%;
     background-color: $background-grey-white;
 
     border-radius: 4px;
