@@ -1,7 +1,15 @@
 <div class="layout-row dashboard-note-area-caption-wrapper flex-100">
-  <div class="layout-row dashboard-note-area-caption">
+  <div class="layout-xs-column layout-row dashboard-note-area-caption">
     {{paper-input placeholder="Search" type="text" onChange=(action (mut user.phone)) icon="search" class="flex-100 dashboard-left-bar-search"}}
+     {{#paper-button warn=true onClick=(action 'record')}}warn{{/paper-button}}
   </div>
 </div>
-{{expansion-panel}}
-{{expansion-panel content='Allow to Jugger eat some fruits'}}
+
+<div class="layout-column flex-90">
+  {{#each model.notes as |note|}}
+    <div class="layout-row layout-wrap">
+      {{expansion-panel title=note.title content=note.description date="06/07/2017" class="flex-100"}}
+      {{expansion-panel title="Jason Durelo" content='Concert' date="06/07/2017" class="flex-100"}}
+    </div>
+  {{/each}}
+</div>

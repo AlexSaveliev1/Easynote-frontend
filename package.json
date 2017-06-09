@@ -46,6 +46,7 @@
   "dependencies": {
     "ember-paper-expansion-panel": "0.0.1",
     "mongodb": "^2.2.28",
-    "mongoose": "^4.10.4"
+    "mongoose": "^4.10.4",
+    "phantomjs": "^2.1.7"
   }
 }

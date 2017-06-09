@@ -14,3 +14,13 @@
 .text-uppercase {
   text-transform: uppercase;
 }
+
+@media (max-width: 600px) {
+  .dashboard {
+    &.content-wrapper {
+      .container {
+        padding: 20px;
+      }
+    }
+  }
+}
