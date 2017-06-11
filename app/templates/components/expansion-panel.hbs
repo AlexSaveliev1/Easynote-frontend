@@ -7,23 +7,34 @@
 
   {{#panel.expanded as |expanded|}}
     {{#expanded.header}}
-      <div class="md-panel-title">{{text-editable maxlength=20 allowNewlines=false value=title}}</div>
+      <div class="md-panel-title">
+        {{#unless recentlyDeleted}}
+          {{text-editable maxlength=20 allowNewlines=false value=title}}
+        {{else}}
+          {{title}}
+        {{/unless}}
+      </div>
       <div class="md-panel-summary">{{date}}</div>
       {{paper-icon "keyboard_arrow_up"}}
     {{/expanded.header}}
 
     {{#expanded.content}}
+    {{#unless recentlyDeleted}}
       {{text-editable allowNewlines=false value=content}}
+    {{else}}
+      {{content}}
+    {{/unless}}
     {{/expanded.content}}
 
     {{#expanded.footer}}
       <span class="flex"></span>
-      {{#paper-button onClick=(action panel.collapse)}}
-        Cancel
-      {{/paper-button}}
-      {{#paper-button primary=true onClick=(action panel.collapse)}}
-        Save
-      {{/paper-button}}
+      {{#paper-button onClick=(action 'delete')}}Delete{{/paper-button}}
+
+      {{#unless recentlyDeleted}}
+        {{#paper-button primary=true onClick=(action panel.collapse)}}Save{{/paper-button}}
+      {{else}}
+        {{#paper-button primary=true onClick=(action 'recover')}}Recover{{/paper-button}}
+      {{/unless}}
     {{/expanded.footer}}
 
   {{/panel.expanded}}
