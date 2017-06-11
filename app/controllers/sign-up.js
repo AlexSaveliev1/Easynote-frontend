@@ -1,12 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  session: Ember.inject.service('session'),
+
   newUser: {
     firstName: null,
     lastName: null,
     email: null,
-    password: null,
-    confirmedPassword: null
+    password: null
   },
 
   actions: {
@@ -39,16 +40,19 @@ export default Ember.Controller.extend({
           return this.set('confirmedPasswordError', ['Passwords do not match'])
         }
 
-        Ember.$.post({
-          url:`http://127.0.0.1:3000/sign-up`,
-          data: newUser
-        })
-        .then(() => console.log('Successfull!'))
-        .catch(error => {
-          let parsedError = JSON.parse(error.responseText);
+       Ember.$.post({
+         url:`http://127.0.0.1:3000/sign-up`,
+         data: newUser
+       })
+       .then(() => {
+         this.get('session').authenticate('authenticator:oauth2', newUser.email, newUser.password)
+         .then(() => this.transitionToRoute('dashboard'))
+       })
+       .catch(error => {
+         let parsedError = JSON.parse(error.responseText);
 
-          this.set('validationError', `${parsedError.email} is already in use`)
-        });
+         this.set('validationError', `${parsedError.email} is already in use`)
+       });
     }
   }
 });

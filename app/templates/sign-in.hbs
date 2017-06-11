@@ -4,19 +4,18 @@
       <h1 class="text-center sign-up-title">Welcome back!</h1>
       {{#paper-form class="sign-up-registration-form" onSubmit=(action 'signIn') as |form|}}
         <div class="layout-row">
-          {{form.input label="Email" value=email icon="email" autofocus=true onChange=(action (mut email)) required=true class="flex-100"}}
+          {{form.input label="Email" type="email" value=email icon="email" autofocus=true onChange=(action (mut email)) required=true class="flex-100"}}
         </div>
         <div class="layout-column">
-          {{form.input label="Password" value=password icon="lock" onChange=(action (mut password)) required=true class="flex-100"}}
+          {{form.input label="Password" type="password" value=password icon="lock" onChange=(action (mut password)) required=true class="flex-100"}}
         </div>
         <div class="layout-row layout-align-center-center">
           <p class="sign-up-validation-error">{{validationError}}</p>
         </div>
         <div class="layout-row layout-align-center-center">
-          {{#form.submit-button raised=true primary=true class="flex-100 sign-up-button" onClick=(action 'signIn') }}Sign in{{/form.submit-button}}
+          {{#form.submit-button raised=true primary=true class="flex-100 sign-up-button"}}Sign in{{/form.submit-button}}
         </div>
         {{#link-to 'sign-up' class="layout-row layout-align-end-center text-caption"}}<p>Don't have an account yet?</p>{{/link-to}}
-        <div class="layout-row layout-align-end-center text-caption" {{action 'test'}}>Forgot password?</div>
       {{/paper-form}}
     </div>
   </div>

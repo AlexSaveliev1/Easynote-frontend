@@ -35,7 +35,12 @@
       }
     }
 
+  .dashboard-left-bar-wrapper {
+    height: 892px;
+  }
+
     .dashboard-note-area {
+      width: 100%;
       box-sizing: border-box;
 
       .dashboard-note-area-caption-wrapper {
@@ -84,4 +89,8 @@
       }
     }
   }
+}
+
+.notes-wrapper {
+  overflow-y: scroll;
 }

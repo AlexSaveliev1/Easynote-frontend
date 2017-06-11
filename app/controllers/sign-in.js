@@ -1,30 +1,23 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  session: Ember.inject.service('session'),
+
   actions: {
     signIn() {
+      const { password, email } = this.getProperties('email', 'password');
+
       this.setProperties({
         validationError: null,
         emailValidationError: null
       })
-      if (!this.get('email') || !this.get('password')) {
+      if (!email || !password) {
         return this.set('validationError', 'Please complete all fields');
       }
 
-
-    Ember.$.post({
-      url:`http://127.0.0.1:3000/sign-in`,
-      data: {
-        password: this.get('password'),
-        email: this.get('email')
-      }
-    })
-    .then(() => console.log('Successfull!'))
-    .catch(error => {
-      let parsedError = JSON.parse(error.responseText);
-
-      this.set('validationError', parsedError.message)
-    });
-  }
+      this.get('session').authenticate('authenticator:oauth2', email, password)
+      .then(() => this.transitionToRoute('dashboard'))
+      .catch(error => this.set('validationError', error.message));
+    }
   }
 });

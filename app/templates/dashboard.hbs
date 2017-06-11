@@ -1,9 +1,8 @@
 <div class="content-wrapper dashboard layout-column flex-100">
   <div class="container layout-row flex-100">
-    <!-- {{header-bar}} -->
     <div class="dashboard-wrapper layout-column flex-100">
       <div class="layout-xs-column layout-row flex-100 layout-align-start-start">
-        <div class="dashboard-left-bar-wrapper layout-column flex-20">
+        <div class="hide show-gt-sm dashboard-left-bar-wrapper layout-column flex-md-30 flex-20">
           <div class="dashboard-left-bar layout-column flex-100">
             <div class="dashboard-left-bar-header">
               <div class="layout-row dashboard-left-bar-header-title">
@@ -12,12 +11,16 @@
               <div class="layout-row dashboard-left-bar-header-title">
                 <h3>Sasha Saveliev</h3>
               </div>
+               <div class="layout-row">
+                 {{#paper-button warn=true onClick=(action 'logOut')}}Logout{{/paper-button}}
+               </div>
+                <hr class='flex-100'>
             </div>
+            {{#paper-button warn=true onClick=null}}Notes{{/paper-button}}
+            {{#paper-button warn=true onClick=null}}Recently deleted(42){{/paper-button}}
           </div>
         </div>
-        <div class="layout-xs-row layout-wrap layout-column dashboard-note-area flex-100">
-          {{outlet}}
-        </div>
+        {{outlet}}
       </div>
     </div>
   </div>

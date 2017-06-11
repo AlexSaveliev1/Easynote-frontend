@@ -9,9 +9,9 @@ export default DS.JSONAPIAdapter.extend({
       return new Ember.RSVP.Promise(function(resolve, reject) {
         Ember.$.ajax({
           type: 'POST',
-          url: `http://localhost:3000/notes`,
+          url: `http://localhost:3000/sign-up`,
           dataType: 'json',
-          data: data
+          data
         }).then(function(data) {
           Ember.run(null, resolve, data);
         }, function(jqXHR) {
@@ -20,26 +20,7 @@ export default DS.JSONAPIAdapter.extend({
         });
       });
     },
-
-    deleteRecord(store, type, snapshot) {
-      let data = this.serialize(snapshot, { includeId: true });
-      let id = snapshot.id;
-
-      return new Ember.RSVP.Promise(function(resolve, reject) {
-        Ember.$.ajax({
-          type: 'DELETE',
-          url: `http://localhost:3000/notes`,
-          dataType: 'json',
-          data: data
-        }).then(function(data) {
-          Ember.run(null, resolve, data);
-        }, function(jqXHR) {
-          jqXHR.then = null; // tame jQuery's ill mannered promises
-          Ember.run(null, reject, jqXHR);
-        });
-      });
-    },
-
+    
     query(store, query) {
       return new Ember.RSVP.Promise(function(resolve, reject) {
         Ember.$.getJSON(`http://localhost:3000/sign-in`, query).then(function(data) {
