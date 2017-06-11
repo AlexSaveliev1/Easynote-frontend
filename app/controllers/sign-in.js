@@ -16,7 +16,7 @@ export default Ember.Controller.extend({
       }
 
       this.get('session').authenticate('authenticator:oauth2', email, password)
-      .then(() => this.transitionToRoute('dashboard'))
+      .then(() => this.transitionToRoute('dashboard.notes'))
       .catch(error => this.set('validationError', error.message));
     }
   }

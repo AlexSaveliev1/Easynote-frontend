@@ -16,8 +16,10 @@
                </div>
                 <hr class='flex-100'>
             </div>
-            {{#paper-button warn=true onClick=null}}Notes{{/paper-button}}
-            {{#paper-button warn=true onClick=null}}Recently deleted(42){{/paper-button}}
+            <div class="layout-row layout-wrap layout-align-center-center">
+              {{#link-to 'dashboard.notes' class='layout-row flex-100'}}{{#paper-button warn=true onClick=null}}Notes{{/paper-button}}{{/link-to}}
+              {{#link-to 'dashboard.recently-deleted' class='layout-row flex-100'}}{{#paper-button warn=true onClick=null}}Recently deleted(42){{/paper-button}}{{/link-to}}
+            </div>
           </div>
         </div>
         {{outlet}}

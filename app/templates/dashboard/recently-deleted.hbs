@@ -1,0 +1,41 @@
+<div class="layout-column dashboard-note-area flex-100">
+  <div class="layout-xs-column layout-row s dashboard-note-area-caption-wrapper flex-100">
+    <div class="layout-xs-column layout-row layout-align-space-between-end dashboard-note-area-caption flex-100">
+      <div class="layout-row layout-align-space-between-end flex-60">
+        <div class="layout-column flex-40">
+          {{paper-input placeholder="Search" type="text" icon="search" onChange=null class="flex-xs-80 flex-100 dashboard-left-bar-search"}}
+        </div>
+
+        <div class="layout-column flex-offset-5">
+          {{#paper-checkbox value=value5 onChange=(action (mut value5)) noink=true}}
+           Last 5 days
+          {{/paper-checkbox}}
+        </div>
+
+        <div class="layout-column flex-offset-5">
+          {{#paper-checkbox value=value6 onChange=(action (mut value6)) noink=true label='Tse'}}
+           Last 10 days
+          {{/paper-checkbox}}
+        </div>
+
+        <div class="layout-column flex-offset-5">
+          {{#paper-button warn=true onClick=null}}Search{{/paper-button}}
+        </div>
+      </div>
+
+      <div class="layout-row layout-align-end-center">
+          {{#paper-button primary=true onClick=null}}Add note{{/paper-button}}
+      </div>
+    </div>
+  </div>
+
+  <div class="layout-column flex-100 notes-wrapper">
+    {{#each notes as |note|}}
+      <div class="layout-row layout-wrap">
+        {{expansion-panel title=note.title content=note.description date="06/07/2017" class="flex-100"}}
+      </div>
+    {{/each}}
+    {{expansion-panel title='title' content='description' date="06/07/2017" class="flex-100"}}
+    {{expansion-panel title='title' content='description' date="06/07/2017" class="flex-100"}}
+  </div>
+</div>

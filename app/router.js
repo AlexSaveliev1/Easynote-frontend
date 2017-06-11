@@ -11,7 +11,8 @@ Router.map(function() {
   this.route('sign-in');
 
   this.route('dashboard', function() {
-    this.route('my-notes');
+    this.route('notes');
+    this.route('recently-deleted');
   });
 });
 
