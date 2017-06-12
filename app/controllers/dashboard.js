@@ -1,25 +1,26 @@
 import Ember from 'ember';
 
-const EMPTY_NOTE = {
-  title: 'Title',
-  description: 'Your descriptin',
-  userId: null
-}
-
 export default Ember.Controller.extend({
   session: Ember.inject.service(),
+  noteManager: Ember.inject.service(),
+
+  capitalize(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  },
+
+  recentlyDeletedAmount: Ember.computed.alias('noteManager.recentlyDeletedAmount'),
+  userFullName: Ember.computed('model.userProfile', function() {
+    if (this.get('model.userProfile.firstName') && this.get('model.userProfile.lastName')) {
+      const firstNameCapitalized = this.get('capitalize')(this.get('model.userProfile.firstName')),
+        lastNameCapitalized = this.get('capitalize')(this.get('model.userProfile.lastName'));
+
+        return `${firstNameCapitalized} ${lastNameCapitalized}`;
+    }
+
+    return capitalize('user');
+  }),
 
   actions: {
-    createNote() {
-      EMPTY_NOTE.userId = this.get('session.data.authenticated.access_token');
-
-      Ember.$.post({
-        url:`http://127.0.0.1:3000/notes`,
-        data: EMPTY_NOTE
-      })
-      .then(() => console.log('added'))
-    },
-
     logOut() {
       this.get('session').invalidate()
       .then(() => this.transitionToRoute('sign-in'));

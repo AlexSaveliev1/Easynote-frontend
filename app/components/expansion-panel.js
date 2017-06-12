@@ -8,6 +8,10 @@ export default Ember.Component.extend({
 
     recover() {
       this.sendAction('onRecover');
+    },
+
+    save(title, description) {
+      this.sendAction('onSave', title, description);
     }
   }
 });

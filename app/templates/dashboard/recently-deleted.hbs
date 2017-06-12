@@ -27,14 +27,13 @@
       </div>
 
       <div class="layout-row layout-align-end-center">
-        {{#paper-button primary=true onClick=null}}Recover all{{/paper-button}}
-        {{#paper-button primary=true onClick=null}}Delete all{{/paper-button}}
+        {{#paper-button primary=true onClick=(action 'recoverAll')}}Recover all{{/paper-button}}
+        {{#paper-button primary=true onClick=(action 'deleteAll')}}Delete all{{/paper-button}}
       </div>
     </div>
   </div>
 
   <div class="layout-column flex-100 notes-wrapper">
-    {{log model.notes}}
     {{#each model.notes as |note|}}
       <div class="layout-row layout-wrap">
         {{expansion-panel title=note.title content=note.description

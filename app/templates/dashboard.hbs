@@ -9,8 +9,9 @@
                 <h2>Notebook</h2>
               </div>
               <div class="layout-row dashboard-left-bar-header-title">
-                <h3>Sasha Saveliev</h3>
+                <h3>{{userFullName}}</h3>
               </div>
+              {{log model.userProfile}}
                <div class="layout-row">
                  {{#paper-button warn=true onClick=(action 'logOut')}}Logout{{/paper-button}}
                </div>
@@ -18,7 +19,12 @@
             </div>
             <div class="layout-row layout-wrap layout-align-center-center">
               {{#link-to 'dashboard.notes' class='layout-row flex-100'}}{{#paper-button warn=true onClick=null}}Notes{{/paper-button}}{{/link-to}}
-              {{#link-to 'dashboard.recently-deleted' class='layout-row flex-100'}}{{#paper-button warn=true onClick=null}}Recently deleted(42){{/paper-button}}{{/link-to}}
+              {{#link-to 'dashboard.recently-deleted' class='layout-row flex-100'}}
+                {{#paper-button warn=true onClick=null}}Recently deleted
+                {{#if recentlyDeletedAmount}}
+                  ({{recentlyDeletedAmount}})
+                {{/if}}
+              {{/paper-button}}{{/link-to}}
             </div>
           </div>
         </div>
