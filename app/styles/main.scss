@@ -28,13 +28,21 @@
     margin-top: 50px;
     margin-bottom: 50px;
   }
-  .main-sign-up-button.md-default-theme.md-button.md-primary.md-raised {
+  .main-button.md-default-theme.md-button.md-primary.md-raised {
     background-color: transparent;
     border: 1px solid white;
     padding: 10px 20px;
     border-radius: 1;
+
+    &.sign-up {
+      border: 1px solid #FFC333;
+      background-color: #FFC333;
+      color: $background-dark-blue;
+    }
+
+
   }
-  .main-sign-up-button.md-default-theme.md-button.md-primary.md-raised:hover {
+  .main-button.md-default-theme.md-button.md-primary.md-raised:hover {
     border: 1px solid #FFC333;
     background-color: #FFC333;
     color: $background-dark-blue;
@@ -56,6 +64,7 @@
 }
 .main-second-section-item {
   margin-bottom: 25px;
+  margin-left: 20px;
 }
 
 .main-third-section {
@@ -67,17 +76,17 @@
 }
 
 .main-fourth-section {
-  padding-top: 80px;
-  color: #0f68a2;
-  padding-bottom: 80px;
+  padding-top: 20px;
+  color: white;
+  padding-bottom: 20px;
   background-color: rgba(15, 104, 162, 0.36);
 }
 
 .main-fifth-section {
-  background-color: rgb(207, 70, 71);
-
-  padding-top: 120px;
-  padding-bottom: 120px;
+  color: white;
+  background-color: #2e3e4e;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 .text-editable {
   outline: none;
@@ -86,13 +95,11 @@
 .text-editable-content {
   white-space: pre;
 }
-.text-sm-center {
-  @media (max-width: 960px) {
-    text-align: center;
+@media (max-width: 600px) {
+  .main-first-section .main-description {
+    font-size: 16px;
+  }
+  .main-second-section {
+    padding-bottom: 0;
   }
 }
-
-@font-face {
-    font-family: house; /* Имя шрифта */
-    src: url('/assets/images/fonts/House.ttf'); /* Путь к файлу со шрифтом */
-   }

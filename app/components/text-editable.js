@@ -8,14 +8,5 @@ export default Ember.Component.extend({
     textEditable.on('click', (event) => {
       event.stopPropagation()
     });
-  },
-
-  actions: {
-    missFocus() {
-      event.stopPropagation()
-    },
-    save() {
-      console.log('asdasd')
-    }
   }
 });

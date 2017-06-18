@@ -9,7 +9,7 @@
     margin-top: 120px;
 
     .sign-up-title {
-      color: $light-green;
+      color: #2caad2;
     }
 
     .sign-up-validation-error {
@@ -49,5 +49,18 @@
         padding: 5px;
       }
     }
+  }
+}
+@media (max-width: 600px) {
+.sign-up-wrapper .sign-up-registration-form-wrapper .sign-up-registration-form {
+  padding: 35px;
+}
+md-input-container {
+  margin: 5px 0;
+}
+}
+@media (max-width: 960px) {
+  .sign-up-wrapper .sign-up-registration-form-wrapper {
+    margin-top: 0;
   }
 }

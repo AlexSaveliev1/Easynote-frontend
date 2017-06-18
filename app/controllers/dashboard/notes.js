@@ -49,7 +49,6 @@ export default Ember.Controller.extend({
     },
 
     saveNote(id, title, description) {
-      console.log(description)
       this.get('store').findRecord('note', id)
       .then(note => {
         note.set('title', title);

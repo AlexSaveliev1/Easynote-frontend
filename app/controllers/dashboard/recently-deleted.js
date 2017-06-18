@@ -5,10 +5,10 @@ export default Ember.Controller.extend({
   noteManager: Ember.inject.service(),
   notesLengthObserver: Ember.observer('model.notes.length', function () {
     if (!this.get('model.notes.length')) {
-      this.set('buttonsDisabled', true);
+      return this.set('buttonsDisabled', true);
     }
 
-    this.set('buttonsDisabled', false);
+    return this.set('buttonsDisabled', false);
   }),
 
   buttonsDisabled: false,

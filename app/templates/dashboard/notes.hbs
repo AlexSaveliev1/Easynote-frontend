@@ -22,7 +22,7 @@
     {{/unless}}
     {{#each notes as |note|}}
       <div class="layout-row layout-wrap">
-        {{expansion-panel title=note.title content=note.description date=note.date onSave=(action 'saveNote' note.id) onDelete=(action 'deleteNote' note.id) class="flex-100"}}
+        {{expansion-panel title=note.title content=note.description date=note.date onSave=(action 'saveNote' note.id) onDelete=(action 'deleteNote' note.id) class="flex-100 note"}}
       </div>
     {{/each}}
   </div>
