@@ -1,7 +1,17 @@
 import Ember from 'ember';
+import SweetAlertMixin from 'ember-sweetalert/mixins/sweetalert-mixin';
 
 export default Ember.Controller.extend({
   noteManager: Ember.inject.service(),
+  notesLengthObserver: Ember.observer('model.notes.length', function () {
+    if (!this.get('model.notes.length')) {
+      this.set('buttonsDisabled', true);
+    }
+
+    this.set('buttonsDisabled', false);
+  }),
+
+  buttonsDisabled: false,
 
   actions: {
     deleteSingle(id) {
@@ -14,19 +24,31 @@ export default Ember.Controller.extend({
     },
 
     deleteAll() {
-        const notesId = this.get('model.notes').map(note => note.id)
+      sweetAlert({
+        title: 'Are you sure that you want to delete all notes?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#f44336',
+        confirmButtonText: 'Delete all'
+            }).then(confirm => {
+              const notesId = this.get('model.notes').map(note => note.id)
 
-        Ember.$.ajax({
-          type: 'DELETE',
-          url: `http://localhost:3000/notes`,
-          data: {
-            notes: notesId
-          }
-        })
-        .then(() => {
-          this.get('store').unloadAll('note');
-          this.set('noteManager.recentlyDeletedAmount', 0);
-        });
+              Ember.$.ajax({
+                type: 'DELETE',
+                url: `http://localhost:3000/notes`,
+                data: {
+                  notes: notesId
+                }
+              })
+              .then(() => {
+                this.get('store').unloadAll('note');
+                this.set('noteManager.recentlyDeletedAmount', 0);
+                swal("Deleted!", "All your notes have been deleted.", "success");
+              });
+            });
+
     },
 
     recoverSingle(id) {
@@ -42,23 +64,35 @@ export default Ember.Controller.extend({
     },
 
     recoverAll() {
-        const notesId = this.get('model.notes').map(note => note.id)
+      sweetAlert({
+        title: 'Are you sure that you want to recover all notes?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#f44336',
+        confirmButtonText: 'Recover all'
+            }).then(confirm => {
+              const notesId = this.get('model.notes').map(note => note.id)
 
-        Ember.$.ajax({
-          type: 'PATCH',
-          url: `http://localhost:3000/notes`,
-          data:{
-            params: {
-                  recentlyDeleted: false,
+              Ember.$.ajax({
+                type: 'PATCH',
+                url: `http://localhost:3000/notes`,
+                data:{
+                  params: {
+                        recentlyDeleted: false,
+                      },
+                      notes: notesId
                 },
-                notes: notesId
-          },
-          json: true
-          })
-          .then(notes => {
-            this.get('store').unloadAll('note');
-            this.set('noteManager.recentlyDeletedAmount', 0);
-          });
+                json: true
+                })
+                .then(notes => {
+                  this.get('store').unloadAll('note');
+                  this.set('noteManager.recentlyDeletedAmount', 0);
+                  swal("Recovered!", "All your notes have been recovered.", "success");
+                });
+            });
+
     },
   }
 });

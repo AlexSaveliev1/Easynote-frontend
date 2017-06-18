@@ -6,7 +6,9 @@
 .text-center {
   text-align: center;
 }
-
+.no-underline {
+  text-decoration: none;
+}
 .text-caption {
   font-size: 13px;
 }
@@ -16,6 +18,9 @@
 }
 
 @media (max-width: 600px) {
+  p, div {
+    font-size: 13px;
+  }
   .dashboard {
     &.content-wrapper {
       .container {

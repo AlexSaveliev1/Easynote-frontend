@@ -6,7 +6,7 @@
       <div class="layout-row layout-align-center-center sign-up-registration-form-title">Create your Easynote account.</div>
       <div class="layout-row">
         {{form.input label="First name" value=newUser.firstName icon="person" autofocus=true onChange=(action (mut newUser.firstName))}}
-        {{form.input label="Last name" required=true value=newUser.lastName onChange=(action (mut newUser.lastName))}}
+        {{form.input label="Last name" value=newUser.lastName onChange=(action (mut newUser.lastName))}}
       </div>
       <div class="layout-column">
         {{form.input label="Email"

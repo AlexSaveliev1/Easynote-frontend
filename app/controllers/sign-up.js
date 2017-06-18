@@ -46,7 +46,7 @@ export default Ember.Controller.extend({
        })
        .then(() => {
          this.get('session').authenticate('authenticator:oauth2', newUser.email, newUser.password)
-         .then(() => this.transitionToRoute('dashboard'))
+         .then(() => this.transitionToRoute('dashboard.notes'))
        })
        .catch(error => {
          let parsedError = JSON.parse(error.responseText);

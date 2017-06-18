@@ -1,7 +1,22 @@
 <div class="content-wrapper dashboard layout-column flex-100">
   <div class="container layout-row flex-100">
     <div class="dashboard-wrapper layout-column flex-100">
-      <div class="layout-xs-column layout-row flex-100 layout-align-start-start">
+      <div class="layout-xs-column layout-sm-column layout-row flex-100 layout-align-start-start">
+        <div class="hide layout-row layout-xs-column layout-align-space-between-center show-sm show-xs flex-offset-xs-5 xs-sm-menu">
+          <div class="layout-row layout-align-center-center flex-offset-5">
+            <h4>{{userFullName}}</h4>
+            {{#paper-button warn=true onClick=(action 'logOut') class=flex-offset-5}}Logout{{/paper-button}}
+          </div>
+          <div class="layout-row">
+            {{#link-to 'dashboard.notes' class='layout-row layout-align-center-center no-underline dashboard-left-bar-buttons'}}{{#paper-button primary=true onClick=null}}Notes{{/paper-button}}{{/link-to}}
+            {{#link-to 'dashboard.recently-deleted' class='layout-row layout-align-center-center no-underline dashboard-left-bar-buttons'}}
+              {{#paper-button primary=true onClick=null}}Recently deleted
+              {{#if recentlyDeletedAmount}}
+                ({{recentlyDeletedAmount}})
+              {{/if}}
+            {{/paper-button}}{{/link-to}}
+          </div>
+        </div>
         <div class="hide show-gt-sm dashboard-left-bar-wrapper layout-column flex-md-30 flex-20">
           <div class="dashboard-left-bar layout-column flex-100">
             <div class="dashboard-left-bar-header">
@@ -11,16 +26,17 @@
               <div class="layout-row dashboard-left-bar-header-title">
                 <h3>{{userFullName}}</h3>
               </div>
-              {{log model.userProfile}}
                <div class="layout-row">
                  {{#paper-button warn=true onClick=(action 'logOut')}}Logout{{/paper-button}}
                </div>
-                <hr class='flex-100'>
             </div>
-            <div class="layout-row layout-wrap layout-align-center-center">
-              {{#link-to 'dashboard.notes' class='layout-row flex-100'}}{{#paper-button warn=true onClick=null}}Notes{{/paper-button}}{{/link-to}}
-              {{#link-to 'dashboard.recently-deleted' class='layout-row flex-100'}}
-                {{#paper-button warn=true onClick=null}}Recently deleted
+            <div class="layout-row">
+              <hr class='flex-100'>
+            </div>
+            <div class="layout-row layout-wrap">
+              {{#link-to 'dashboard.notes' class='layout-row flex-100 layout-align-center-center no-underline dashboard-left-bar-buttons'}}{{#paper-button primary=true onClick=null}}Notes{{/paper-button}}{{/link-to}}
+              {{#link-to 'dashboard.recently-deleted' class='layout-row layout-align-center-center no-underline dashboard-left-bar-buttons flex-100'}}
+                {{#paper-button primary=true onClick=null}}Recently deleted
                 {{#if recentlyDeletedAmount}}
                   ({{recentlyDeletedAmount}})
                 {{/if}}

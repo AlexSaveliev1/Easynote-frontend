@@ -1,7 +1,11 @@
 @import 'variables';
 
 .main-first-section {
-  background-color: #53B567;
+  width: 100%;
+  background-image: url('/assets/images/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
 
   .main-title {
@@ -23,52 +27,50 @@
   .main-sign-up {
     margin-top: 50px;
     margin-bottom: 50px;
-
-    .main-sign-up-button.md-default-theme.md-button.md-primary.md-raised {
-      background-color: transparent;
-      border: 1px solid white;
-      padding: 10px 20px;
-      border-radius: 1;
-    }
-    .main-sign-up-button.md-default-theme.md-button.md-primary.md-raised:hover {
-      border: 1px solid #FFC333;
-      background-color: #FFC333;
-      color: $background-dark-blue;
-    }
+  }
+  .main-sign-up-button.md-default-theme.md-button.md-primary.md-raised {
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 10px 20px;
+    border-radius: 1;
+  }
+  .main-sign-up-button.md-default-theme.md-button.md-primary.md-raised:hover {
+    border: 1px solid #FFC333;
+    background-color: #FFC333;
+    color: $background-dark-blue;
   }
 }
-
 .main-second-section {
   background-color: white;
   padding-top: 70px;
   padding-bottom: 70px;
+  padding-left: 70px;
+  padding-right: 70px;
 
   .main-second-section-image {
     width: 90px;
     height: 90px;
     background-size: cover;
-
-    &.image-simple {
-      background-image: url('/assets/images/icons/simple.svg');
-    }
-
-    &.image-productivity {
-      background-image: url('/assets/images/icons/productivity.svg');
-    }
-    &.image-order {
-      background-image: url('/assets/images/icons/order.svg');
-    }
+    fill: #2caad2;
   }
+}
+.main-second-section-item {
+  margin-bottom: 25px;
 }
 
 .main-third-section {
   height: 500px;
-  background-color: rgb(58,62,100);
+  background-image: url('/assets/images/responsive-design.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .main-fourth-section {
   padding-top: 80px;
+  color: #0f68a2;
   padding-bottom: 80px;
+  background-color: rgba(15, 104, 162, 0.36);
 }
 
 .main-fifth-section {
@@ -77,3 +79,20 @@
   padding-top: 120px;
   padding-bottom: 120px;
 }
+.text-editable {
+  outline: none;
+}
+
+.text-editable-content {
+  white-space: pre;
+}
+.text-sm-center {
+  @media (max-width: 960px) {
+    text-align: center;
+  }
+}
+
+@font-face {
+    font-family: house; /* Имя шрифта */
+    src: url('/assets/images/fonts/House.ttf'); /* Путь к файлу со шрифтом */
+   }

@@ -17,7 +17,7 @@ export default Ember.Controller.extend({
         return `${firstNameCapitalized} ${lastNameCapitalized}`;
     }
 
-    return capitalize('user');
+    return this.get('capitalize')('user');
   }),
 
   actions: {

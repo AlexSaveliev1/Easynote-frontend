@@ -19,7 +19,7 @@
 
     .sign-up-button.md-default-theme.md-button.md-primary.md-raised {
       background-color: transparent;
-      border: 1px solid $light-green;
+      border: 1px solid #a9a9a9;
       padding: 10px 20px;
       border-radius: 1;
       color: $background-dark-blue;
@@ -36,7 +36,6 @@
       background-color: white;
 
       border-radius: $border-radius;
-      // box-shadow: 2px 5px 25px 0px rgba(0,0,0,0.75);
       box-shadow: $box-shadow-low;
       padding: 55px;
       margin-left: 20px;

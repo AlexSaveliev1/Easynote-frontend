@@ -6,10 +6,11 @@
   {{/panel.collapsed}}
 
   {{#panel.expanded as |expanded|}}
+  {{log expanded}}
     {{#expanded.header}}
       <div class="md-panel-title">
         {{#unless recentlyDeleted}}
-          {{text-editable maxlength=20 allowNewlines=false value=title}}
+          {{text-editable maxlength=20 allowNewlines=false value=title class="text-editable text-editable-title"}}
         {{else}}
           {{title}}
         {{/unless}}
@@ -18,9 +19,9 @@
       {{paper-icon "keyboard_arrow_up"}}
     {{/expanded.header}}
 
-    {{#expanded.content}}
+    {{#expanded.content class='expanded'}}
     {{#unless recentlyDeleted}}
-      {{text-editable allowNewlines=false value=content}}
+      {{text-editable allowNewlines=true value=content class="text-editable text-editable-content"}}
     {{else}}
       {{content}}
     {{/unless}}
@@ -29,7 +30,6 @@
     {{#expanded.footer}}
       <span class="flex"></span>
       {{#paper-button onClick=(action 'delete')}}Delete{{/paper-button}}
-
       {{#unless recentlyDeleted}}
         <div {{action panel.collapse}}>{{#paper-button primary=true onClick=(action 'save' title content)}}Save{{/paper-button}}</div>
       {{else}}

@@ -1,17 +1,30 @@
 @import 'variables';
-
+.xs-sm-menu {
+  width: 100%;
+}
 .dashboard {
   .container {
     width: 100vw;
     box-sizing: border-box;
     padding: 50px;
   }
+}
 
+.dashboard-left-bar-buttons {
+  button {
+    width: 100%;
+  }
+}
+.header-bar {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.main-second-section-image {
+  fill: #2caad2;
 }
 .content-wrapper {
   height: 100vh;
   background-color: $background-dark-blue;
-
 
   .dashboard-wrapper {
     height: 100%;
@@ -90,7 +103,13 @@
     }
   }
 }
-
+.notes-add-note-button {
+  margin-right: 20px;
+}
 .notes-wrapper {
-  overflow-y: scroll;
+  overflow-y: auto;
+}
+.notes-empty {
+  font-style: italic;
+  min-height: 40px;
 }
