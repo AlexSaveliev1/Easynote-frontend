@@ -37,7 +37,7 @@ export default Ember.Controller.extend({
 
               Ember.$.ajax({
                 type: 'DELETE',
-                url: `http://localhost:3000/notes`,
+                url: `http://46.4.90.221:3321/notes`,
                 data: {
                   notes: notesId
                 }
@@ -77,7 +77,7 @@ export default Ember.Controller.extend({
 
               Ember.$.ajax({
                 type: 'PATCH',
-                url: `http://localhost:3000/notes`,
+                url: `http://46.4.90.221:3321/notes`,
                 data:{
                   params: {
                         recentlyDeleted: false,
