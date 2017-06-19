@@ -41,7 +41,7 @@ export default Ember.Controller.extend({
         }
 
        Ember.$.post({
-         url:`http://127.0.0.1:3000/sign-up`,
+         url:`http://46.4.90.221:3321/sign-up`,
          data: newUser
        })
        .then(() => {
